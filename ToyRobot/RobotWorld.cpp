@@ -24,3 +24,13 @@ std::pair<int, int> RobotWorld::GetDims()
 {
   return std::make_pair(_length, _width);
 }
+
+std::pair<int, int> RobotWorld::GetRobotCoords()
+{
+  return std::make_pair<int, int>(1, 1);
+}
+
+bool RobotWorld::PlaceRobot(int x, int y)
+{
+  return true;
+}

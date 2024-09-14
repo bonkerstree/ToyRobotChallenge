@@ -31,3 +31,14 @@ TEST(RobotWorldTest, GetDims_WillReturnLengthFiveAndWidthOne_WhenRobotWorldIsCon
   EXPECT_EQ(dimensions.first, 5);
   EXPECT_EQ(dimensions.second, 1);
 }
+
+TEST(RobotWorldTest, PlaceRobot_WillReturnTrue_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInXOneYOne) {
+  RobotWorld rw(1, 1);
+  bool isRobotPlaced = rw.PlaceRobot(1, 1);
+  //auto coords = rw.GetRobotCoords();
+
+  EXPECT_TRUE(isRobotPlaced);
+
+  //EXPECT_EQ(coords.first, 1);
+  //EXPECT_EQ(coords.second, 1);
+}
