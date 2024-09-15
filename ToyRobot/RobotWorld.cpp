@@ -32,5 +32,15 @@ std::pair<int, int> RobotWorld::GetRobotCoords()
 
 bool RobotWorld::PlaceRobot(int x, int y)
 {
-  return true;
+  bool isRobotPlaced = false;
+
+  if(x >= 0 && y >= 0)
+  {
+    if(x < _width && y < _length)
+    {
+      isRobotPlaced = true;
+    }
+  }
+  
+  return isRobotPlaced;
 }

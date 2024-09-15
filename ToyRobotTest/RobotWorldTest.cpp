@@ -16,6 +16,14 @@ TEST(RobotWorldTest, GetDims_WillReturnLengthOneAndWidthOne_WhenRobotWorldIsCons
   EXPECT_EQ(dimensions.second, 1);
 }
 
+TEST(RobotWorldTest, GetDims_WillReturnLengthOneAndWidthOne_WhenRobotWorldIsConstructedWithNegativeLengthAndNegativeWidth) {
+  RobotWorld rw(-5, -1);
+  auto dimensions = rw.GetDims();
+
+  EXPECT_EQ(dimensions.first, 1);
+  EXPECT_EQ(dimensions.second, 1);
+}
+
 TEST(RobotWorldTest, GetDims_WillReturnLengthOneAndWidthFive_WhenRobotWorldIsConstructedWithLengthZeroAndWidthFive) {
   RobotWorld rw(0, 5);
   auto dimensions = rw.GetDims();
@@ -32,13 +40,63 @@ TEST(RobotWorldTest, GetDims_WillReturnLengthFiveAndWidthOne_WhenRobotWorldIsCon
   EXPECT_EQ(dimensions.second, 1);
 }
 
-TEST(RobotWorldTest, PlaceRobot_WillReturnTrue_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInXOneYOne) {
+TEST(RobotWorldTest, PlaceRobot_WillReturnFalse_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInXOneYOne) {
   RobotWorld rw(1, 1);
   bool isRobotPlaced = rw.PlaceRobot(1, 1);
-  //auto coords = rw.GetRobotCoords();
+
+  EXPECT_FALSE(isRobotPlaced);
+}
+
+TEST(RobotWorldTest, PlaceRobot_WillReturnTrue_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInXZeroYZero) {
+  RobotWorld rw(1, 1);
+  bool isRobotPlaced = rw.PlaceRobot(0, 0);
 
   EXPECT_TRUE(isRobotPlaced);
-
-  //EXPECT_EQ(coords.first, 1);
-  //EXPECT_EQ(coords.second, 1);
 }
+
+TEST(RobotWorldTest, PlaceRobot_WillReturnFalse_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInXZeroYOne) {
+  RobotWorld rw(1, 1);
+  bool isRobotPlaced = rw.PlaceRobot(0, 1);
+
+  EXPECT_FALSE(isRobotPlaced);
+}
+
+TEST(RobotWorldTest, PlaceRobot_WillReturnFalse_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInXOneYZero) {
+  RobotWorld rw(1, 1);
+  bool isRobotPlaced = rw.PlaceRobot(1, 0);
+
+  EXPECT_FALSE(isRobotPlaced);
+}
+
+
+TEST(RobotWorldTest, PlaceRobot_WillReturnFalse_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInNegativeXAndYZero) {
+  RobotWorld rw(1, 1);
+  bool isRobotPlaced = rw.PlaceRobot(-1, 0);
+
+  EXPECT_FALSE(isRobotPlaced);
+}
+
+TEST(RobotWorldTest, PlaceRobot_WillReturnFalse_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInXZeroAndNegativeY) {
+  RobotWorld rw(1, 1);
+  bool isRobotPlaced = rw.PlaceRobot(0, -1);
+
+  EXPECT_FALSE(isRobotPlaced);
+}
+
+/*
+TEST(RobotWorldTest, PlaceRobot_WillReturnFalse_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInXOneAndYTwo) {
+  RobotWorld rw(1, 1);
+  bool isRobotPlaced = rw.PlaceRobot(-1, 2);
+
+  EXPECT_FALSE(isRobotPlaced);
+}
+/*
+TEST(RobotWorldTest, GetRobotCoords_WillReturnXOneYOne_WhenRobotWorldIsConstructedWithLengthOneWidthOneAndRobotIsPlacedInXOneYOne) {
+  RobotWorld rw(1, 1);
+  rw.PlaceRobot(1, 1);
+  auto coords = rw.GetRobotCoords();
+
+  EXPECT_EQ(coords.first, 1);
+  EXPECT_EQ(coords.second, 1);
+}
+*/
