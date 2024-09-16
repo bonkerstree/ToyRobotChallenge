@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToyRobot", "ToyRobot\ToyRob
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToyRobotTest", "ToyRobotTest\ToyRobotTest.vcxproj", "{894C117B-3DB5-48F1-AD86-BA78C6EBA6EA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoogleTestLib", "GoogleTestLib\GoogleTestLib.vcxproj", "{71ABA84B-5AB0-4B3D-BD84-D985D0B849D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{894C117B-3DB5-48F1-AD86-BA78C6EBA6EA}.Release|x64.Build.0 = Release|x64
 		{894C117B-3DB5-48F1-AD86-BA78C6EBA6EA}.Release|x86.ActiveCfg = Release|Win32
 		{894C117B-3DB5-48F1-AD86-BA78C6EBA6EA}.Release|x86.Build.0 = Release|Win32
+		{71ABA84B-5AB0-4B3D-BD84-D985D0B849D6}.Debug|x64.ActiveCfg = Debug|x64
+		{71ABA84B-5AB0-4B3D-BD84-D985D0B849D6}.Debug|x64.Build.0 = Debug|x64
+		{71ABA84B-5AB0-4B3D-BD84-D985D0B849D6}.Debug|x86.ActiveCfg = Debug|Win32
+		{71ABA84B-5AB0-4B3D-BD84-D985D0B849D6}.Debug|x86.Build.0 = Debug|Win32
+		{71ABA84B-5AB0-4B3D-BD84-D985D0B849D6}.Release|x64.ActiveCfg = Release|x64
+		{71ABA84B-5AB0-4B3D-BD84-D985D0B849D6}.Release|x64.Build.0 = Release|x64
+		{71ABA84B-5AB0-4B3D-BD84-D985D0B849D6}.Release|x86.ActiveCfg = Release|Win32
+		{71ABA84B-5AB0-4B3D-BD84-D985D0B849D6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

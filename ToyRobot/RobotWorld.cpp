@@ -1,4 +1,5 @@
 #include "RobotWorld.h"
+#include "Utilities.h"
 
 RobotWorld::RobotWorld(int length, int width):
   m_RoboX(-1),
@@ -147,4 +148,54 @@ bool RobotWorld::RotateRobotLeft()
   }
 
   return robotRotated;
+}
+
+/*static*/ RobotWorld::Direction RobotWorld::DirectionStrToVal(std::string directionString)
+{
+  Util::toupper(directionString);
+  Util::trim(directionString);
+
+  Direction direction = Direction::NONE;
+  if(directionString == "NORTH")
+  {
+    direction = Direction::NORTH;
+  }
+  else if(directionString == "EAST")
+  {
+    direction = Direction::EAST;
+  }
+  else if(directionString == "SOUTH")
+  {
+    direction = Direction::SOUTH;
+  }
+  else if(directionString == "WEST")
+  {
+    direction = Direction::WEST;
+  }
+  
+  return direction;
+}
+
+/*static*/ std::string RobotWorld::DirectionValToString(RobotWorld::Direction direction)
+{
+  std::string directionString;
+
+  if(direction == Direction::NORTH)
+  {
+    directionString = "NORTH";
+  }
+  else if(direction == Direction::EAST)
+  {
+    directionString = "EAST";
+  }
+  else if(direction == Direction::SOUTH)
+  {
+    directionString = "SOUTH";
+  }
+  else if(direction == Direction::WEST)
+  {
+    directionString = "WEST";
+  }
+
+  return directionString;
 }

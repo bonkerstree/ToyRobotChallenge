@@ -685,15 +685,66 @@ TEST(RobotWorldTest, GetRobotDirection_WillReturnNorth_WhenRobotFacingNorthIsRot
   EXPECT_EQ(robotDirection, RobotWorld::Direction::NORTH);
 }
 
-/*
-TEST(RobotWorldTest, GetRobotCoords_WillReturnPreviousPosition_WhenRobotGoesOutOfBoundsNorth) {
-  RobotWorld rw(1, 1);
+TEST(RobotWorldTest, DirectionStringToValue_WillReturnNorthValue_WhenNorthStringGiven) {
+  auto val = RobotWorld::DirectionStrToVal("NORTH");
+  EXPECT_EQ(val, RobotWorld::Direction::NORTH);
 
-  rw.PlaceRobot(0, 0, RobotWorld::Direction::NORTH);
-  rw.MoveRobotForward();
-  auto coords = rw.GetRobotCoords();
+  val = RobotWorld::DirectionStrToVal("north");
+  EXPECT_EQ(val, RobotWorld::Direction::NORTH);
 
-  EXPECT_EQ(coords.first, 0);
-  EXPECT_EQ(coords.second, 0);
+  val = RobotWorld::DirectionStrToVal("  north  ");
+  EXPECT_EQ(val, RobotWorld::Direction::NORTH);
 }
-*/
+
+TEST(RobotWorldTest, DirectionStringToValue_WillReturnEastValue_WhenEastStringGiven) {
+  auto val = RobotWorld::DirectionStrToVal("EAST");
+  EXPECT_EQ(val, RobotWorld::Direction::EAST);
+
+  val = RobotWorld::DirectionStrToVal("east");
+  EXPECT_EQ(val, RobotWorld::Direction::EAST);
+
+  val = RobotWorld::DirectionStrToVal("  east  ");
+  EXPECT_EQ(val, RobotWorld::Direction::EAST);
+}
+
+TEST(RobotWorldTest, DirectionStringToValue_WillReturnSouthValue_WhenSouthStringGiven) {
+  auto val = RobotWorld::DirectionStrToVal("SOUTH");
+  EXPECT_EQ(val, RobotWorld::Direction::SOUTH);
+
+  val = RobotWorld::DirectionStrToVal("south");
+  EXPECT_EQ(val, RobotWorld::Direction::SOUTH);
+
+  val = RobotWorld::DirectionStrToVal("  south  ");
+  EXPECT_EQ(val, RobotWorld::Direction::SOUTH);
+}
+
+TEST(RobotWorldTest, DirectionStringToValue_WillReturnWestValue_WhenWestStringGiven) {
+  auto val = RobotWorld::DirectionStrToVal("WEST");
+  EXPECT_EQ(val, RobotWorld::Direction::WEST);
+
+  val = RobotWorld::DirectionStrToVal("west");
+  EXPECT_EQ(val, RobotWorld::Direction::WEST);
+
+  val = RobotWorld::DirectionStrToVal("  west  ");
+  EXPECT_EQ(val, RobotWorld::Direction::WEST);
+}
+
+TEST(RobotWorldTest, DirectionValToString_WillReturnNorthString_WhenNorthValueGiven) {
+  auto directionString = RobotWorld::DirectionValToString(RobotWorld::Direction::NORTH);
+  EXPECT_STREQ(directionString.c_str(), "NORTH");
+}
+
+TEST(RobotWorldTest, DirectionValToString_WillReturnEastString_WhenEastValueGiven) {
+  auto directionString = RobotWorld::DirectionValToString(RobotWorld::Direction::EAST);
+  EXPECT_STREQ(directionString.c_str(), "EAST");
+}
+
+TEST(RobotWorldTest, DirectionValToString_WillReturnSouthString_WhenSouthValueGiven) {
+  auto directionString = RobotWorld::DirectionValToString(RobotWorld::Direction::SOUTH);
+  EXPECT_STREQ(directionString.c_str(), "SOUTH");
+}
+
+TEST(RobotWorldTest, DirectionValToString_WillReturnWestString_WhenWestValueGiven) {
+  auto directionString = RobotWorld::DirectionValToString(RobotWorld::Direction::WEST);
+  EXPECT_STREQ(directionString.c_str(), "WEST");
+}

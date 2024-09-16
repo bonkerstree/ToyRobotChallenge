@@ -1,5 +1,6 @@
 #pragma once
 #include <utility>
+#include <string>
 
 class RobotWorld
 {
@@ -19,10 +20,13 @@ public:
   std::pair<int, int> GetDims();
   std::pair<int, int> GetRobotCoords();
   Direction GetRobotDirection();
-  bool PlaceRobot(int x, int y, Direction d = Direction::NORTH);
+  virtual bool PlaceRobot(int x, int y, Direction d = Direction::NORTH);
   bool MoveRobotForward();
   bool RotateRobotRight();
   bool RotateRobotLeft();
+
+  static RobotWorld::Direction DirectionStrToVal(std::string directionString);
+  static std::string DirectionValToString(RobotWorld::Direction direction);
 
 private:
   int m_Length;
