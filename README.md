@@ -12,4 +12,5 @@ There are existing test files in the Debug folder that can be used as examples:
 
 If the file argument provided does not exist, the application will not run.
 
+
 The ToyRobotTest.exe binary can be run to execute the unit tests of the application. This binary uses the test files inside Debug/TestFiles so if they have been modified, some of the tests may fail.
