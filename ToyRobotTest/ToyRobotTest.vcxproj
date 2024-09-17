@@ -92,6 +92,9 @@
     <Text Include="TestFiles\TestFile1.txt" />
     <Text Include="TestFiles\TestFile2.txt" />
     <Text Include="TestFiles\TestFile3.txt" />
+    <Text Include="TestFiles\TestFile4.txt" />
+    <Text Include="TestFiles\TestFile5.txt" />
+    <Text Include="TestFiles\TestFile6.txt" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
