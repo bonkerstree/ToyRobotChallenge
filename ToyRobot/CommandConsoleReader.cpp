@@ -1,17 +1,17 @@
 #include "CommandConsoleReader.h"
 #include "Utilities.h"
 
-CommandConsoleReader::CommandConsoleReader(std::stringbuf* streamBuffer):
+CommandConsoleReader::CommandConsoleReader():
   m_InputStream(std::cin.rdbuf())
 {
 }
 
 CommandConsoleReader::~CommandConsoleReader()
 {
-  
 }
 
-std::pair<CommandReader::Command, std::vector<std::string>> CommandConsoleReader::GetCommand()
+// Retrieves the command and arguments from the command string. The command string is also returned
+std::tuple<CommandReader::Command, std::vector<std::string>, std::string> CommandConsoleReader::GetCommand()
 {
   std::string commandString;
   m_InputStream >> commandString;
@@ -35,40 +35,11 @@ std::pair<CommandReader::Command, std::vector<std::string>> CommandConsoleReader
     }
   }
 
-  return std::make_pair(command, commandArgs);
+  return std::make_tuple(command, commandArgs, commandString + argString);
 }
 
+// Replaces the buffer used in the stream. Currently only used for testing the console input
 void CommandConsoleReader::SetStreamBuffer(std::stringbuf& buffer)
 {
   m_InputStream.rdbuf(&buffer);
-}
-
-CommandReader::Command CommandConsoleReader::ParseCommand(std::string commandString)
-{
-  Util::toupper(commandString);
-  Util::trim(commandString);
-
-  Command command = Command::Invalid;
-  if(commandString.compare("PLACE") == 0)
-  {
-    command = Command::Place;
-  }
-  else if(commandString.compare("MOVE") == 0)
-  {
-    command = Command::Move;
-  }
-  else if(commandString.compare("LEFT") == 0)
-  {
-    command = Command::Left;
-  }
-  else if(commandString.compare("RIGHT") == 0)
-  {
-    command = Command::Right;
-  }
-  else if(commandString.compare("REPORT") == 0)
-  {
-    command = Command::Report;
-  }
-
-  return command;
 }

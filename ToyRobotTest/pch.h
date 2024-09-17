@@ -8,4 +8,5 @@
 #include "gmock/gmock.h"
 #include "../ToyRobot/RobotWorld.h"
 #include "../ToyRobot/CommandConsoleReader.h"
+#include "../ToyRobot/CommandFileReader.h"
 #include "../ToyRobot/Utilities.h"

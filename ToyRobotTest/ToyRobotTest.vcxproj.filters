@@ -5,8 +5,25 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="gtest_main.cc" />
     <ClCompile Include="CommandConsoleReaderTest.cpp" />
+    <ClCompile Include="CommandFileReaderTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TestFiles\TestFile1.txt">
+      <Filter>TestFiles</Filter>
+    </Text>
+    <Text Include="TestFiles\TestFile2.txt">
+      <Filter>TestFiles</Filter>
+    </Text>
+    <Text Include="TestFiles\TestFile3.txt">
+      <Filter>TestFiles</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="TestFiles">
+      <UniqueIdentifier>{9a1496b9-6f1f-41f8-87d1-50299cb39816}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

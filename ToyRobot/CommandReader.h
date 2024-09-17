@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <tuple>
 
 class CommandReader
 {
@@ -12,11 +13,16 @@ public:
     Move,
     Left,
     Right,
-    Report
+    Report,
+    Exit
   };
 
   CommandReader(){};
   ~CommandReader(){};
 
-  std::pair<Command, std::vector<std::string>> virtual GetCommand() = 0;
+  std::tuple<Command, std::vector<std::string>, std::string> virtual GetCommand() = 0;
+  static std::string CommandValToString(CommandReader::Command command);
+
+protected:
+  CommandReader::Command ParseCommand(std::string commandString);
 };

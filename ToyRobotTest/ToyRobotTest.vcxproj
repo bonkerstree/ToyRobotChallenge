@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommandConsoleReaderTest.cpp" />
+    <ClCompile Include="CommandFileReaderTest.cpp" />
     <ClCompile Include="gtest_main.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -87,6 +88,11 @@
       <Project>{4248106b-711e-470e-be25-24164bdef718}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="TestFiles\TestFile1.txt" />
+    <Text Include="TestFiles\TestFile2.txt" />
+    <Text Include="TestFiles\TestFile3.txt" />
+  </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
@@ -103,9 +109,12 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>RobotWorld.obj;CommandConsoleReader.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RobotWorld.obj;CommandReader.obj;CommandConsoleReader.obj;CommandFileReader.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)ToyRobot\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy TestFiles $(SolutionDir)$(Configuration)\TestFiles\ /Y</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -121,8 +130,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)ToyRobot\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>RobotWorld.obj;CommandConsoleReader.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RobotWorld.obj;CommandReader.obj;CommandConsoleReader.obj;CommandFileReader.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy TestFiles $(SolutionDir)$(Configuration)\TestFiles\ /Y</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -138,9 +150,12 @@
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>RobotWorld.obj;CommandConsoleReader.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RobotWorld.obj;CommandReader.obj;CommandConsoleReader.obj;CommandFileReader.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)ToyRobot\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy TestFiles $(SolutionDir)$(Configuration)\TestFiles\ /Y</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -157,7 +172,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <AdditionalLibraryDirectories>$(SolutionDir)ToyRobot\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>RobotWorld.obj;CommandConsoleReader.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RobotWorld.obj;CommandReader.obj;CommandConsoleReader.obj;CommandFileReader.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy TestFiles $(SolutionDir)$(Configuration)\TestFiles\ /Y</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
 </Project>

@@ -21,10 +21,10 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnPlaceCommandWithVectorOfAr
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Place);
-  EXPECT_STREQ(commandWithArgs.second.at(0).c_str(), "1");
-  EXPECT_STREQ(commandWithArgs.second.at(1).c_str(), "2");
-  EXPECT_STREQ(commandWithArgs.second.at(2).c_str(), "NORTH");
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Place);
+  EXPECT_STREQ(std::get<1>(commandWithArgs).at(0).c_str(), "1");
+  EXPECT_STREQ(std::get<1>(commandWithArgs).at(1).c_str(), "2");
+  EXPECT_STREQ(std::get<1>(commandWithArgs).at(2).c_str(), "NORTH");
 }
 
 TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnMoveCommandWithEmptyArgVector_WhenValidMoveCommandIsInputted)
@@ -34,8 +34,8 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnMoveCommandWithEmptyArgVec
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Move);
-  EXPECT_TRUE(commandWithArgs.second.empty());
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Move);
+  EXPECT_TRUE(std::get<1>(commandWithArgs).empty());
 }
 
 TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnLeftCommandWithEmptyArgVector_WhenValidLeftCommandIsInputted)
@@ -45,8 +45,8 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnLeftCommandWithEmptyArgVec
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Left);
-  EXPECT_TRUE(commandWithArgs.second.empty());
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Left);
+  EXPECT_TRUE(std::get<1>(commandWithArgs).empty());
 }
 
 TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnRightCommandWithEmptyArgVector_WhenValidRightCommandIsInputted)
@@ -56,8 +56,8 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnRightCommandWithEmptyArgVe
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Right);
-  EXPECT_TRUE(commandWithArgs.second.empty());
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Right);
+  EXPECT_TRUE(std::get<1>(commandWithArgs).empty());
 }
 
 TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnReportCommandWithEmptyArgVector_WhenValidReportCommandIsInputted)
@@ -67,8 +67,8 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnReportCommandWithEmptyArgV
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Report);
-  EXPECT_TRUE(commandWithArgs.second.empty());
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Report);
+  EXPECT_TRUE(std::get<1>(commandWithArgs).empty());
 }
 
 TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnInvalidCommandWithEmptyArguments_WhenInvalidCommandIsInputted)
@@ -78,8 +78,8 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnInvalidCommandWithEmptyArg
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Invalid);
-  EXPECT_TRUE(commandWithArgs.second.empty());
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Invalid);
+  EXPECT_TRUE(std::get<1>(commandWithArgs).empty());
 }
 
 TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnMoveCommandWithEmptyArgVector_WhenLowercaseMoveCommandIsInputted)
@@ -89,8 +89,8 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnMoveCommandWithEmptyArgVec
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Move);
-  EXPECT_TRUE(commandWithArgs.second.empty());
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Move);
+  EXPECT_TRUE(std::get<1>(commandWithArgs).empty());
 }
 
 TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnMoveCommandWithEmptyArgVector_WhenMoveCommandIsInputtedWithExcessiveSpaces)
@@ -100,8 +100,8 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnMoveCommandWithEmptyArgVec
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Move);
-  EXPECT_TRUE(commandWithArgs.second.empty());
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Move);
+  EXPECT_TRUE(std::get<1>(commandWithArgs).empty());
 }
 
 TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnPlaceCommandWithVectorOfArguments_WhenPlaceCommandIsInputtedWithExcessiveSpaces)
@@ -111,10 +111,10 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnPlaceCommandWithVectorOfAr
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Place);
-  EXPECT_STREQ(commandWithArgs.second.at(0).c_str(), "1");
-  EXPECT_STREQ(commandWithArgs.second.at(1).c_str(), "2");
-  EXPECT_STREQ(commandWithArgs.second.at(2).c_str(), "NORTH");
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Place);
+  EXPECT_STREQ(std::get<1>(commandWithArgs).at(0).c_str(), "1");
+  EXPECT_STREQ(std::get<1>(commandWithArgs).at(1).c_str(), "2");
+  EXPECT_STREQ(std::get<1>(commandWithArgs).at(2).c_str(), "NORTH");
 }
 
 TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnPlaceCommandWithVectorOfArguments_WhenPlaceCommandIsInputtedWithLowerCaseLetters)
@@ -124,8 +124,8 @@ TEST_F(CommandConsoleReaderTest, GetCommand_WillReturnPlaceCommandWithVectorOfAr
   
   auto commandWithArgs = reader.GetCommand();
 
-  EXPECT_EQ(commandWithArgs.first, CommandReader::Command::Place);
-  EXPECT_STREQ(commandWithArgs.second.at(0).c_str(), "1");
-  EXPECT_STREQ(commandWithArgs.second.at(1).c_str(), "2");
-  EXPECT_STREQ(commandWithArgs.second.at(2).c_str(), "NORTH");
+  EXPECT_EQ(std::get<0>(commandWithArgs), CommandReader::Command::Place);
+  EXPECT_STREQ(std::get<1>(commandWithArgs).at(0).c_str(), "1");
+  EXPECT_STREQ(std::get<1>(commandWithArgs).at(1).c_str(), "2");
+  EXPECT_STREQ(std::get<1>(commandWithArgs).at(2).c_str(), "NORTH");
 }

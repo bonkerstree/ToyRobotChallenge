@@ -13,33 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{9b720979-1702-4e28-85bb-6522c592b595}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RobotWorld.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CommandReader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CommandConsoleReader.h">
-      <Filter>Header Files</Filter>
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFileReader.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandReader.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotWorld.h">
+      <Filter>Helpers</Filter>
     </ClInclude>
     <ClInclude Include="Utilities.h">
-      <Filter>Header Files</Filter>
+      <Filter>Helpers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RobotWorld.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CommandConsoleReader.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFileReader.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandReader.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="RobotWorld.cpp">
+      <Filter>Helpers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
