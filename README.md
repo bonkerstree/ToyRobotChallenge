@@ -1,5 +1,7 @@
 The binary ToyRobot.exe is already built and can already be run in the Debug folder.
+
 To run the application in console mode, simply double click ToyRobot.exe or run it in the console without any arguments.
+
 To run the application in file mode, provide the file name as argument to ToyRobot.exe like the following:
   
     ToyRobot.exe file.txt
