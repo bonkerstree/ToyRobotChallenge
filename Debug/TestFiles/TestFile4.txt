@@ -1,0 +1,3 @@
+place 0,0,north
+left
+report
